@@ -1,8 +1,13 @@
 package com.addressbook;
 
+import com.google.gson.Gson;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 public class AddressBookDataJSONTest {
 
@@ -26,7 +31,26 @@ public class AddressBookDataJSONTest {
         System.out.println(addressBookData);
         Assertions.assertEquals(201, statusCode);
     }
+
+    @Test
+    public void givenContactToUpdateShouldReturnResponseCode200() {
+        AddressBookJSONService addressBookRestService = null;
+        AddressBookData[] arrayOfContacts = addressBookRestService.readAddressBookData();
+        addressBookRestService = new AddressBookJSONService(Arrays.asList(arrayOfContacts));
+
+        addressBookRestService.updateAddressBook("Nadeem", "456123");
+        AddressBookData addressBookData = addressBookRestService.getAddressBookData("Nadeem");
+
+        String json = new Gson().toJson(addressBookData);
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+        request.body(json);
+        Response response = request.put("/addressbook" +addressBookData.id);
+        int statusCode = response.getStatusCode();
+        Assertions.assertEquals(200, statusCode);
+    }
 }
+
 
 
 

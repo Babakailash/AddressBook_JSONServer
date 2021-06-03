@@ -1,13 +1,13 @@
 package com.addressbook;
 
 public class AddressBookData {
-    private int id;
-    private String firstName;
+    public int id;
+    public String firstName;
     private String lastName;
     private String address;
     private String city;
     private String state;
-    private String zip;
+    public String zip;
     private String phoneNumber;
     private String email;
     private String date;

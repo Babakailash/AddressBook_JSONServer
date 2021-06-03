@@ -4,8 +4,18 @@ import com.google.gson.Gson;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddressBookJSONService {
+
+    private List<AddressBookData> addressBookDataList;
+
+    public AddressBookJSONService(List<AddressBookData> addressBookDataList) {
+        this.addressBookDataList = new ArrayList<>(addressBookDataList);
+    }
+
+    public AddressBookJSONService() {}
 
     public AddressBookData[] readAddressBookData() {
         RestAssured.baseURI = "http://localhost:3000";
@@ -23,4 +33,18 @@ public class AddressBookJSONService {
         requestSpecification.body(contact);
         return requestSpecification.post("/addressbook");
     }
+
+    public void updateAddressBook(String name, String zip) {
+        RestAssured.baseURI = "http://localhost:3000";
+            AddressBookData addressBookData = this.getAddressBookData(name);
+            if (addressBookData != null){
+                addressBookData.zip = zip;
+            }
+    }
+
+    public AddressBookData getAddressBookData(String name) {
+        RestAssured.baseURI = "http://localhost:3000";
+        return this.addressBookDataList.stream().filter(addressBookData -> addressBookData.firstName.equals(name)).findFirst().orElse(null);
+    }
 }
+
