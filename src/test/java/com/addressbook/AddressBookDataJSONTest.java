@@ -49,6 +49,24 @@ public class AddressBookDataJSONTest {
         int statusCode = response.getStatusCode();
         Assertions.assertEquals(200, statusCode);
     }
+
+
+    @Test
+    public void givenContactToDelete_WhenUpdated_ShouldMatchCountAndResponseCode200() {
+        AddressBookJSONService addressBookRestService = null;
+        AddressBookData[] arrayOfContacts = addressBookRestService.readAddressBookData();
+        addressBookRestService = new AddressBookJSONService(Arrays.asList(arrayOfContacts));
+
+        AddressBookData addressBookData = addressBookRestService.getAddressBookData("Arvind");
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+        Response response = request.delete("/addressbook" + addressBookData.id);
+        int statusCode = response.getStatusCode();
+        Assertions.assertEquals(200, statusCode);
+        addressBookRestService.deleteContactData(addressBookData.firstName);
+        long entries = addressBookRestService.countEntries();
+        Assertions.assertEquals(4, entries);
+    }
 }
 
 

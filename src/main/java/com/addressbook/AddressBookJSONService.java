@@ -35,16 +35,23 @@ public class AddressBookJSONService {
     }
 
     public void updateAddressBook(String name, String zip) {
-        RestAssured.baseURI = "http://localhost:3000";
-            AddressBookData addressBookData = this.getAddressBookData(name);
-            if (addressBookData != null){
-                addressBookData.zip = zip;
-            }
+        AddressBookData addressBookData = this.getAddressBookData(name);
+        if (addressBookData != null){
+            addressBookData.zip = zip;
+        }
     }
 
     public AddressBookData getAddressBookData(String name) {
-        RestAssured.baseURI = "http://localhost:3000";
         return this.addressBookDataList.stream().filter(addressBookData -> addressBookData.firstName.equals(name)).findFirst().orElse(null);
+    }
+
+    public boolean deleteContactData(String firstName) {
+        AddressBookData addressBookData = this.getAddressBookData(firstName);
+        return addressBookDataList.remove(addressBookData);
+    }
+
+    public long countEntries() {
+        return addressBookDataList.size();
     }
 }
 
