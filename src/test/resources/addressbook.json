@@ -1,8 +1,8 @@
 {
   "AddressBook": [
     {
-      "id":1,
-      "firstName":"Kailashnath",
+      "id": 1,
+      "firstName": "Kailashnath",
       "lastName": "Vishwakarma",
       "address": "New Delhi",
       "city": "East Delhi",
@@ -13,28 +13,52 @@
       "date": "2011-05-15"
     },
     {
-      "id":2,
-      "firstName":"Akash",
-      "lastName": "Shevgan",
-      "address": "Mumbai",
-      "city": "Pune",
-      "state": "Maharastra",
-      "phoneNumber": "1234567890",
-      "zip": "420420",
-      "email": "akash@gamil.com",
-      "date": "2021-04-23"
+      "id": 2,
+      "firstName": "Arvind",
+      "lastName": "Kejriwal",
+      "address": "Moti-Road",
+      "city": "Kaushambi",
+      "state": "New Delhi",
+      "zip": "110096",
+      "phoneNumber": "444444444",
+      "email": "arvind@kejri.com",
+      "date": "2014-06-25"
     },
     {
-      "id":3,
-      "firstName":"Ravan",
-      "lastName": "Pandit",
-      "address": "ShriLanka",
-      "city": "Vatika",
-      "state": "Colombo",
-      "phoneNumber": "777777777",
-      "zip": 232323,
-      "email": "lankesh@gamil.com",
-      "date": "2002-06-05"
+      "id": 3,
+      "firstName": "Arvind",
+      "lastName": "Kejriwal",
+      "address": "Moti-Road",
+      "city": "Kaushambi",
+      "state": "New Delhi",
+      "zip": "110096",
+      "phoneNumber": "444444444",
+      "email": "arvind@kejri.com",
+      "date": "2014-06-25"
+    },
+    {
+      "id": 4,
+      "firstName": "Arvind",
+      "lastName": "Kejriwal",
+      "address": "Moti-Road",
+      "city": "Kaushambi",
+      "state": "New Delhi",
+      "zip": "110096",
+      "phoneNumber": "444444444",
+      "email": "arvind@kejri.com",
+      "date": "2014-06-25"
+    },
+    {
+      "id": 5,
+      "firstName": "Arvind",
+      "lastName": "Kejriwal",
+      "address": "Moti-Road",
+      "city": "Kaushambi",
+      "state": "New Delhi",
+      "zip": "110096",
+      "phoneNumber": "444444444",
+      "email": "arvind@kejri.com",
+      "date": "2014-06-25"
     }
   ]
 }
