@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+
+    implementation 'io.rest-assured:rest-assured:4.3.3'
+
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'junit:junit:4.13.1'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.3'
+    /*compile "com.google.code.gson:gson:2.2+"
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'*/
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
